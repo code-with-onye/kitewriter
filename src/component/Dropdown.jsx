@@ -47,15 +47,11 @@ const Dropdown = ({
       </button>
 
       {isOpen && (
-        <div className="origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg h-40 overflow-y-scroll z-20">
+        <div className="origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg h-20 overflow-y-scroll z-20">
           <div className="py-1 rounded-md bg-white shadow-xs">
-            {options.map((option) => (
+            {options.map((option, i) => (
               <button
-                key={
-                  typeof option === "string"
-                    ? option
-                    : option.name || option.prompt
-                }
+                key={i}
                 className={`block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900 ${
                   (typeof option === "string" && option === selected) ||
                   (typeof option !== "string" && option.name === selected) ||
