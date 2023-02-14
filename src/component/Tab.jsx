@@ -20,8 +20,8 @@ const Tab = ({ tabs, activeTab, onTabChange, onTabItems }) => {
             onClick={() => handleTabClick(index, tab)}
             className={`relative inline-flex items-center  px-4 py-2 text-sm font-medium leading-5 text-xs tracking-wide   ${
               activeTab === index
-                ? "text-white bg-black  rounded-3xl"
-                : "text-indigo-800 bg-gray-200 hover:text-indigo-600"
+                ? "text-white bg-black   rounded-3xl"
+                : "text-slate-800  hover:text-black"
             }`}
           >
             {tab}

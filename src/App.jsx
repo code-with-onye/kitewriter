@@ -47,15 +47,14 @@ function App() {
   };
 
   const submitPrompt = () => {
-    let prompt = `${selctedVal.prompt} trnaslate to ${selctedVal.language} make it ${selctedVal.tone}`;
     chrome.tabs.executeScript({
-      code: `document.querySelector("textarea").value = "${prompt}"
+      code: `document.querySelector("textarea").value = "${generate}"
        document.querySelector(".button").click();`,
     });
   };
 
   return (
-    <div className="w-80 h-80 px-2">
+    <div className="w-80 h-full px-2 py-4 bg-slate-100">
       <Tab
         tabs={tabs}
         activeTab={activeTab}
@@ -66,7 +65,10 @@ function App() {
         <Dropdown
           options={Lanuage}
           selected={selcted.language}
-          onChange={(val) => setSelected({ ...selcted, language: val })}
+          onChange={(val) => {
+            setSelected({ ...selcted, language: val });
+            setGenerate("");
+          }}
           onChangeVal={(val) =>
             setSelectedVal({ ...selctedVal, language: val })
           }
@@ -76,7 +78,10 @@ function App() {
         <Dropdown
           options={Tone}
           selected={selcted.tone}
-          onChange={(val) => setSelected({ ...selcted, tone: val })}
+          onChange={(val) => {
+            setSelected({ ...selcted, tone: val });
+            setGenerate("");
+          }}
           onChangeVal={(val) => setSelectedVal({ ...selctedVal, tone: val })}
           label="Select Tone"
         />
@@ -85,14 +90,20 @@ function App() {
       <Dropdown
         options={activeTab ? filtered : Prompts}
         selected={selcted.prompt}
-        onChange={(val) => setSelected({ ...selcted, prompt: val })}
+        onChange={(val) => {
+          setSelected({ ...selcted, prompt: val });
+          setGenerate("");
+        }}
         onChangeVal={(val) => setSelectedVal({ ...selctedVal, prompt: val })}
         label={activeTab ? `Select Prompt ${filter}` : "Select Prompt"}
       />
 
       <Textarea
         value={generate}
-        editPrompt={(val) => setGenerate(val)}
+        editPrompt={(val) => {
+          setGenerate(val);
+          submitPrompt();
+        }}
         className={generate ? "block" : "hidden"}
       />
 

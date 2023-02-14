@@ -33,10 +33,10 @@ const Dropdown = ({
         aria-haspopup="true"
         aria-controls="menu"
         type="button"
-        className="flex items-center justify-between bg-slate-200 px-2 py-2 w-full rounded-3xl "
+        className="flex items-center justify-between bg-slate-900 px-2 py-2 w-full rounded-3xl text-slate-300 "
         onClick={() => setIsOpen(!isOpen)}
       >
-        <p className="text-sm tracking-wide"> {selected}</p>
+        <p className="text-xs tracking-wide"> {selected}</p>
         <svg
           className="absolute right-0 h-5 w-5 text-gray-400 pointer-events-none"
           fill="currentColor"
@@ -48,7 +48,7 @@ const Dropdown = ({
 
       {isOpen && (
         <div className="origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg h-20 overflow-y-scroll z-20">
-          <div className="py-1 rounded-md bg-white shadow-xs">
+          <div className="py-1 rounded-md bg-slate-300 shadow-xs ">
             {options.map((option, i) => (
               <button
                 key={i}
@@ -56,7 +56,7 @@ const Dropdown = ({
                   (typeof option === "string" && option === selected) ||
                   (typeof option !== "string" && option.name === selected) ||
                   option.title === selected
-                    ? "bg-black text-white"
+                    ? "bg-slate-900 text-slate-300"
                     : ""
                 }`}
                 onClick={() => {
