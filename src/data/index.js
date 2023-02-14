@@ -18,12 +18,18 @@ export const Prompts = [
     title: "Blog Idea & Outline",
     description:
       "Generate ideas and content structure for article to get enhanced keywords suggestions.",
-    tags: "blog",
+    tags: ["blog", "content"],
   },
   {
     prompt: "Write articles based on section [Topics] & [Headlines]",
     title: "Blog Section Writing",
     description: "Write articles based on section topics & headlines",
-    tags: "blog",
+    tags: ["ads"],
+  },
+  {
+    prompt: "Write articles based on section [Topics] & [Headlines]",
+    title: "Blog Section ",
+    description: "Write articles based on section topics & headlines",
+    tags: ["ads"],
   },
 ];
