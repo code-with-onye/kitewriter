@@ -9,7 +9,7 @@ const Tab = ({ tabs, activeTab, onTabChange, onTabItems }) => {
   };
 
   return (
-    <div className="flex overflow-x-auto w-full flex.overflow-x-scroll">
+    <div className="flex overflow-x-auto w-full flex overflow-x-scroll ">
       <div
         className="flex overflow-x-scroll "
         style={{ scrollBehavior: "smooth", scrollLeft }}

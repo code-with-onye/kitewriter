@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Button from "./component/Button";
 import Dropdown from "./component/Dropdown";
+import Header from "./component/Header";
 import Tab from "./component/Tab";
 import Textarea from "./component/Textarea";
 import { Lanuage, Tone, Prompts } from "./data";
@@ -55,12 +56,16 @@ function App() {
 
   return (
     <div className="w-80 h-full px-2 py-4 bg-slate-100">
-      <Tab
-        tabs={tabs}
-        activeTab={activeTab}
-        onTabChange={(index) => setActiveTab(index)}
-        onTabItems={(tabItem) => setFilter(tabItem)}
-      />
+      <Header />
+      <div className="text-xs border-b space-y-2">
+        <p className="">Search your favorite prompt</p>
+        <Tab
+          tabs={tabs}
+          activeTab={activeTab}
+          onTabChange={(index) => setActiveTab(index)}
+          onTabItems={(tabItem) => setFilter(tabItem)}
+        />
+      </div>
       <div className="flex gap-x-2 items-center gap-y-4">
         <Dropdown
           options={Lanuage}
