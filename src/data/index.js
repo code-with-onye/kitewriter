@@ -8,6 +8,9 @@ export const Lanuage = [
 
 export const Tone = ["Convicing", "Casual", "Formal", "Funny"];
 
+// Prompts idea can be a string
+// Prompt can be an Array
+// tags should be the input that will filter the prompt
 export const Prompts = [
   {
     prompt:
