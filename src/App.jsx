@@ -2,30 +2,32 @@ import { useState, useEffect } from "react";
 import Button from "./component/Button";
 import Dropdown from "./component/Dropdown";
 import Header from "./component/Header";
+import Input from "./component/input";
 import Tab from "./component/Tab";
 import Textarea from "./component/Textarea";
-import { Lanuage, Tone, Prompts } from "./data";
+import { Lanuage, Tone, Prompts, tabs } from "./data";
 
 function App() {
-  const [count, setCount] = useState(0);
   const [generate, setGenerate] = useState("");
   const [activeTab, setActiveTab] = useState(0);
   const [filter, setFilter] = useState("");
+  const [description, setDescription] = useState("");
   const [isGenerate, setIsGenerate] = useState(false);
 
-  const tabs = ["All", "Ads", "Blog", "Content"];
   const filtered = [];
 
   const [selcted, setSelected] = useState({
     language: "🇬🇧 English",
     tone: "Convicing",
     prompt: "Blog Ideas",
+    description: "",
   });
 
   const [selctedVal, setSelectedVal] = useState({
     language: "🇬🇧 English",
     tone: "Convicing",
     prompt: "Blog Ideas",
+    description: "Balablu",
   });
 
   Prompts.map(
@@ -42,7 +44,7 @@ function App() {
 
   const genratePrompt = () => {
     setGenerate(
-      `${selctedVal.prompt} trnaslate to ${selctedVal.language} make it ${selctedVal.tone}`
+      ` ${selctedVal.prompt}  "${description}"   trnaslate to ${selctedVal.language} make it ${selctedVal.tone}`
     );
     setIsGenerate(true);
   };
@@ -95,14 +97,25 @@ function App() {
       <Dropdown
         options={activeTab ? filtered : Prompts}
         selected={selcted.prompt}
-        onChange={(val) => {
-          setSelected({ ...selcted, prompt: val });
+        onChange={(val, desc) => {
+          setSelected({ ...selcted, prompt: val, description: desc });
           setGenerate("");
         }}
         onChangeVal={(val) => setSelectedVal({ ...selctedVal, prompt: val })}
+        // onChangeDes={(val)=> setD}
         label={activeTab ? `Select Prompt ${filter}` : "Select Prompt"}
       />
+      <span className="text-xs  ">{selcted.description}</span>
 
+      <Input
+        label="Enter description"
+        placeholder=""
+        type="text"
+        onChangeVal={(val) => {
+          setDescription(val);
+          setGenerate("");
+        }}
+      />
       <Textarea
         value={generate}
         editPrompt={(val) => {

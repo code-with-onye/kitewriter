@@ -1,7 +1,9 @@
 const Textarea = (props) => {
   return (
     <form className={`mt-8 , ${props.className}`}>
-      <p className="text-xs capitalize  font-semibold w-full">Preview prompt</p>
+      <label className="text-xs capitalize  font-semibold w-full">
+        Preview prompt
+      </label>
       <textarea
         name=""
         id=""
