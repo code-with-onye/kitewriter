@@ -8,7 +8,7 @@ export const Lanuage = [
 
 export const Tone = ["Convicing", "Casual", "Formal", "Funny"];
 
-export const tabs = ["All", "Ads", "Blog", "Content", "Advert"];
+
 export const Prompts = [
   {
     prompt:
