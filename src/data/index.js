@@ -8,17 +8,15 @@ export const Lanuage = [
 
 export const Tone = ["Convicing", "Casual", "Formal", "Funny"];
 
-// Prompts idea can be a string
-// Prompt can be an Array
-// tags should be the input that will filter the prompt
+
 export const Prompts = [
   {
     prompt:
-      "Generate ideas and content structure for article to get enhanced [Keywords] suggestions",
-    title: "Blog Idea & Outline",
+      "I want you to act as an advertiser. You will create a campaign to promote a product or service of your choice. you will choose target audience, develop key messages and slogans, select the media channels for promotion, and decide on any additional activities needed to reach your goal my first suggestion request is",
+    title: "Advertiser",
     description:
-      "Generate ideas and content structure for article to get enhanced keywords suggestions.",
-    tags: ["blog", "content"],
+      "Social media advertiser prompt generate good campaign to promote your product",
+    tags: ["advert", "social media"],
   },
   {
     prompt: "Write articles based on section [Topics] & [Headlines]",

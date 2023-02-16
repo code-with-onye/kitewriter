@@ -66,8 +66,16 @@ const Dropdown = ({
                       ? option
                       : option.name
                       ? ` ${option.flag} ${option.name}`
-                      : option.title
+                      : option.title,
+                    option.description
                   );
+                  // onChangeDes(
+                  //   typeof option === "string"
+                  //     ? option
+                  //     : option.name
+                  //     ? ` ${option.description}`
+                  //     : option.title
+                  // );
                   onChangeVal(
                     typeof option === "string"
                       ? option
